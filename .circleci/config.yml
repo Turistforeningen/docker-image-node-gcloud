@@ -25,12 +25,11 @@ jobs:
           name: Build docker image and push image to GCR
           command: |
             gcloud auth configure-docker --quiet
-            TAG="11.10.0"
             docker build -t docker-image-node-gcloud .
             docker tag docker-image-node-gcloud eu.gcr.io/dnt-docker-registry-public/docker-image-node-gcloud:latest
-            docker tag docker-image-node-gcloud eu.gcr.io/dnt-docker-registry-public/docker-image-node-gcloud:$TAG
+            docker tag docker-image-node-gcloud eu.gcr.io/dnt-docker-registry-public/docker-image-node-gcloud:11.10.0
             docker push eu.gcr.io/dnt-docker-registry-public/docker-image-node-gcloud:latest
-            docker push eu.gcr.io/dnt-docker-registry-public/docker-image-node-gcloud:$TAG
+            docker push eu.gcr.io/dnt-docker-registry-public/docker-image-node-gcloud:11.10.0
 
       - run:
           name: Notify Slack on failure
