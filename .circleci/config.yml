@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Authenticate with gcloud
           command: |
-            echo $GCLOUD_DOCKER_PRIVATE_CREDENTIALS > ${HOME}/gcloud-service-key.json
+            echo $GCLOUD_CREDENTIALS > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
 
       # if authentication succeeded - checkout code
